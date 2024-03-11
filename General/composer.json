@@ -1,6 +1,6 @@
 {
     "name": "blopes/test-models",
-    "type": "library",
+    "type": "project",
     "description": "The skeleton application for the Laravel framework.",
     "keywords": ["laravel", "framework"],
     "license": "MIT",
