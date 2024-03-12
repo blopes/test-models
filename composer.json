@@ -1,10 +1,11 @@
 {
-    "name": "blopes/shared-models",
+    "name": "blopes/test-models",
     "description": "Test packaging",
     "type": "library",
     "require": {
         "php": "8.3.2"
     },
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Blopes\\SharedModels\\": "src/"
@@ -22,5 +23,6 @@
             "Blopes\\SharedModels\\ProjectServiceProvider"
           ]
         }
-      }
+      },
+    "minimum-stability": "dev"
 }
