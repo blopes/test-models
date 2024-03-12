@@ -18,7 +18,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "MSource\\SharedModels\\AppServiceProvider"
+                "MSource\\SharedModels\\ProjectServiceProvider"
             ]
         }
     }

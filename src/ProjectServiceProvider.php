@@ -4,7 +4,7 @@ namespace MSource\SharedModels;
 
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+class ProjectServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
