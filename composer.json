@@ -14,5 +14,12 @@
         "psr-4": {
             "Msource\\SharedModels\\": "src"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MSource\\SharedModels\\AppServiceProvider"
+            ]
+        }
     }
 }

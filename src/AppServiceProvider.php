@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace MSource\SharedModels;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -19,6 +19,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->loadMigrationsFrom(__DIR__.'/migrations');
+        $this->publishes([
+            __DIR__.'/../database/migrations/2023_12_04_122358_create_projects_table.php' => $this->getMigrationFileName('create_projects_table.php'),
+        ], 'project-migrations');
     }
 }
