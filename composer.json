@@ -1,25 +1,28 @@
 {
-    "name": "blopes/test-models",
+    "name": "blopes/shared-models",
+    "description": "Test packaging",
     "type": "library",
-    "description": "Descricao",
-    "homepage": "https://bimms.net",
-    "authors": [
-        {
-            "name": "Bruno",
-            "email": "blopes@mail.com",
-            "role": "Leader"
-        }
-    ],
+    "require": {
+        "php": "8.3.2"
+    },
+    "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Msource\\SharedModels\\": "src/"
+            "Blopes\\SharedModels\\": "src/"
         }
     },
+    "authors": [
+        {
+            "name": "blopes",
+            "email": "blopes@bimms.net"
+        }
+    ],
     "extra": {
         "laravel": {
-            "providers": [
-                "MSource\\SharedModels\\ProjectServiceProvider"
-            ]
+          "providers": [
+            "Blopes\\SharedModels\\ProjectServiceProvider"
+          ]
         }
-    }
+      },
+    "minimum-stability": "dev"
 }

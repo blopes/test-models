@@ -1,6 +1,6 @@
 <?php
 
-namespace MSource\SharedModels;
+namespace Blopes\SharedModels;
 
 use Illuminate\Support\ServiceProvider;
 

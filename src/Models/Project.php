@@ -1,6 +1,6 @@
 <?php
 
-namespace MSource\SharedModels\Models;
+namespace Blopes\SharedModels\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
