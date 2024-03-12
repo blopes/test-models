@@ -20,4 +20,9 @@ class Project extends Model
         'updated_at' => 'datetime'
     ];
 
+    public function getName()
+    {
+        return $this->title;
+    }
+
 }
