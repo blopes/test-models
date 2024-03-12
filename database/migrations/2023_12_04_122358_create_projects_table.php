@@ -22,11 +22,8 @@ return new class extends Migration
                 $table->string('country', 70)->nullable();
                 $table->string('city', 70)->nullable();
                 $table->bigInteger('framework_id')->nullable()->unsigned();
-                $table->foreign('framework_id')->references('id')->on('frameworks')->onDelete('cascade');
                 $table->bigInteger('classification_system_id')->nullable()->unsigned();
-                $table->foreign('classification_system_id')->references('id')->on('classification_systems')->onDelete('cascade');
                 $table->bigInteger('creator_id')->nullable()->unsigned();
-                $table->foreign('creator_id')->references('id')->on('users');
                 $table->timestamps();
                 $table->softDeletes();
             }
