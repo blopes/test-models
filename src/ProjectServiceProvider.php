@@ -19,8 +19,6 @@ class ProjectServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->publishes([
-            __DIR__.'/../database/migrations/2023_12_04_122358_create_projects_table.php.stub' => base_path('database/migrations/2023_12_04_122358_create_projects_table.php'),
-        ], 'project-migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     }
 }
