@@ -22,6 +22,5 @@
             "Blopes\\SharedModels\\ProjectServiceProvider"
           ]
         }
-      },
-    "minimum-stability": "dev"
+      }
 }
