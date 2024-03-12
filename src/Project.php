@@ -12,7 +12,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Project extends Model
 {
-    use HasFactory;
     use SoftDeletes;
 
     protected $table = 'projects';
@@ -26,84 +25,4 @@ class Project extends Model
         'updated_at' => 'datetime'
     ];
 
-    public function projectDetails(): HasOne
-    {
-        return $this->hasOne(ProjectDetails::class);
-    }
-
-    public function units(): HasMany
-    {
-        return $this->hasMany(Unit::class, 'project_id');
-    }
-
-    public function framework(): BelongsTo
-    {
-        return $this->belongsTo(Framework::class);
-    }
-
-    public function classificationSystem(): BelongsTo
-    {
-        return $this->belongsTo(ClassificationSystem::class);
-    }
-
-    public function projectCreator(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'creator_id');
-    }
-
-    public function users(): BelongsToMany
-    {
-        return $this->belongsToMany(User::class, 'project_users');
-    }
-
-    public function stages()
-    {
-        return $this->hasManyThrough(
-            Stage::class,
-            Framework::class,
-            'id',           // Foreign key on frameworks table
-            'framework_id', // Foreign key on stages table
-            'framework_id', // Local key on units table
-            'id'            // Local key on frameworks table
-        );
-    }
-
-    public function stageChapters()
-    {
-        $stages = $this->stages()->get();
-        $stage_chapter_ids = $stages->pluck('stage_chapter_id')->unique();
-
-        return StageChapters::whereIn('id', $stage_chapter_ids)->get();
-    }
-
-    public function agentActions(): HasMany
-    {
-        return $this->hasMany(AgentActions::class);
-    }
-
-    public function thumbnail()
-    {
-        return $this->belongsTo(Thumbnail::class);
-    }
-
-    public static function boot()
-    {
-        parent::boot();
-
-        self::deleting(function (Project $project) {
-            foreach ($project->units as $unit) {
-                $unit->delete();
-            }
-        });
-    }
-
-    protected static function booted()
-    {
-        static::creating(function ($project) {
-            // Check if thumbnail_id is null and fill it with a default value if so
-            if (is_null($project->thumbnail_id)) {
-                $project->thumbnail_id = 3;
-            }
-        });
-    }
 }
