@@ -2,6 +2,7 @@
 
 namespace Blopes\SharedModels;
 
+use Blopes\SharedModels\Middleware\Authenticate;
 use Illuminate\Support\ServiceProvider;
 
 class ProjectServiceProvider extends ServiceProvider
@@ -11,7 +12,7 @@ class ProjectServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        app('router')->aliasMiddleware('authenticate', Authenticate::class);
     }
 
     /**
