@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace Blopes\SharedModels\Middleware;
 
 use Blopes\SharedModels\Models\User;
 use Closure;
