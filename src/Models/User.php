@@ -9,9 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Junaidnasir\Larainvite\InviteTrait;
 use Laravel\Sanctum\HasApiTokens;
-use Spatie\Activitylog\Traits\CausesActivity;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
@@ -20,9 +18,7 @@ class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
     use HasFactory;
     use Notifiable;
     use HasRoles;
-    use InviteTrait;
     use SoftDeletes;
-    use CausesActivity;
 
     /**
      * The attributes that are mass assignable.
