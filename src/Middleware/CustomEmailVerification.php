@@ -8,7 +8,7 @@ use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
-use Blopes\SharedModels\Traits\ApiResponseTrait
+use Blopes\SharedModels\Traits\ApiResponseTrait;
 
 class CustomEmailVerification extends EnsureEmailIsVerified
 {
