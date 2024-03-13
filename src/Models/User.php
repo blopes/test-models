@@ -1,24 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace Blopes\SharedModels\Models;
 
-use App\Models\Organization;
-use App\Models\UserDeletionTokens;
-use App\Models\UserDetails;
-use App\Notifications\AccountDeletionConfirmation;
-use App\Notifications\CustomEmailNotification;
-use App\Notifications\CustomPasswordNotification;
-use App\Notifications\InviteToAgent;
-use Exception;
 use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
