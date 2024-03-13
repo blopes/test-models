@@ -3,6 +3,7 @@
 namespace Blopes\SharedModels\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Project extends Model
@@ -20,9 +21,11 @@ class Project extends Model
         'updated_at' => 'datetime'
     ];
 
-    public function getName()
+    public function units(): HasMany
     {
-        return $this->title;
+        return $this->hasMany(Unit::class, 'project_id');
     }
+
+    
 
 }

@@ -2,6 +2,7 @@
 
 namespace Blopes\SharedModels\Models;
 
+use Exception;
 use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -55,4 +56,14 @@ class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
         'created_at', 'updated_at'
     ];
 
+    public function getProjectRole($project_id): string
+    {
+        $project_user = ProjectUser::where('project_id', $project_id)->where('user_id', $this->id)->first();
+
+        if (!$project_user) {
+            throw new Exception('User not in that project', 403);
+        }
+
+        return $project_user->getRoleNames()->first();
+    }
 }
