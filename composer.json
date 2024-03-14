@@ -9,7 +9,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Blopes\\SharedModels\\": "src/"
+            "Blopes\\SharedModels\\": "src/",
+            "Blopes\\SharedModels\\Database\\Seeders\\": "database/seeders/"
         }
     },
     "authors": [
@@ -25,5 +26,5 @@
           ]
         }
       },
-      "minimum-stability": "stable"
+      "minimum-stability": "dev"
 }
