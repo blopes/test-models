@@ -4,8 +4,7 @@
     "type": "library",
     "require": {
         "php": "^8.1",
-        "spatie/laravel-permission": "^6.1",
-        "blopes/test-models": "^1.0"
+        "spatie/laravel-permission": "^6.1"
     },
     "license": "MIT",
     "autoload": {
@@ -26,5 +25,5 @@
           ]
         }
       },
-      "minimum-stability": "stable"
+      "minimum-stability": "dev"
 }
