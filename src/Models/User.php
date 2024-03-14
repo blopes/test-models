@@ -55,7 +55,6 @@ class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
     public function getProjectRole($project_id): string
     {
         $project_user = ProjectUser::where('project_id', $project_id)->where('user_id', $this->id)->first();
-
         if (!$project_user) {
             throw new Exception('User not in that project', 403);
         }
