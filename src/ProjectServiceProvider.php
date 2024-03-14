@@ -17,24 +17,27 @@ class ProjectServiceProvider extends ServiceProvider
         app('router')->aliasMiddleware('verify_email', CustomEmailVerification::class);
     }
 
+    protected $seed_list = [
+        'Blopes\SharedModels\Database\Seeders\UserSeeder',
+    ];
     /**
      * Bootstrap any package services.
      */
     public function boot(): void
     {
-        $seed_list[] = 'Blopes\SharedModels\Database\Seeders';
 
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-        $this->loadSeeders($seed_list);
+        $this->loadSeeders($this->seed_list);
     }
 
-    protected function loadSeeders($seed_list){
+    protected function loadSeeders($seed_list)
+    {
         $this->callAfterResolving(DatabaseSeeder::class, function ($seeder) use ($seed_list) {
-                    foreach ((array) $seed_list as $path) {
-                        $seeder->call($seed_list);
-                        // here goes the code that will print out in console that the migration was succesful
-                    }
-                });
+            foreach ($seed_list as $path) {
+                $seeder->call($path);
+                // Print out in console that the migration was successful
             }
+        });
+    }
         
 }
