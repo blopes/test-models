@@ -12,7 +12,7 @@ class OrganizationSizeSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('org_size')->insert(
+        DB::table('organization_size')->insert(
             [
             ['id' => 1,'name' => '0 - 10 Employees',],
             ['id' => 2,'name' => '10 - 50 Employees',],
