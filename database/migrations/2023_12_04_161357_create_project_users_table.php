@@ -11,8 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasTable('users')) {
-            if (!Schema::hasTable('users')) {
+            if (!Schema::hasTable('project_users')) {
                 Schema::create(
                     'project_users',
                     function (Blueprint $table) {
@@ -31,7 +30,6 @@ return new class extends Migration
                         $table->softDeletes();
                     }
                 );
-            }
         }
     }
 
