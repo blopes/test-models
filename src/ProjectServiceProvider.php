@@ -5,6 +5,8 @@ namespace Blopes\SharedModels;
 use Blopes\SharedModels\Middleware\Authenticate;
 use Blopes\SharedModels\Middleware\CustomEmailVerification;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Seeder as DatabaseSeeder;
+
 
 class ProjectServiceProvider extends ServiceProvider
 {
