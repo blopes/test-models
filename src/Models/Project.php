@@ -11,6 +11,7 @@ use Blopes\SharedModels\Models\StageChapters;
 use Blopes\SharedModels\Models\Thumbnail;
 use Blopes\SharedModels\Models\Unit;
 use Blopes\SharedModels\Models\User;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
