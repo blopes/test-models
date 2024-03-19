@@ -6,7 +6,7 @@ use Blopes\SharedModels\Models\Framework;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class StagesSeeder extends Seeder
+class StageSeeder extends Seeder
 {
     /**
      * Run the database seeds.
