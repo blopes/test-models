@@ -5,7 +5,7 @@ namespace Blopes\SharedModels\Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class OrgSizeSeeder extends Seeder
+class OrganizationSizeSeeder extends Seeder
 {
     /**
      * Run the database seeds.

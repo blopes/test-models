@@ -26,6 +26,7 @@ return new class extends Migration
                 $table->string('description', 255)->nullable();
                 $table->boolean('is_registered')->default(false);
                 $table->timestamps();
+                $table->softDeletes();
             }
         );
     }
@@ -37,6 +38,8 @@ return new class extends Migration
     {
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('organizations');
+        $table->dropSoftDeletes();
+
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 };
