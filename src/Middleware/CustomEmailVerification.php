@@ -26,7 +26,7 @@ class CustomEmailVerification extends EnsureEmailIsVerified
     {
         if (auth()->user()) {
             /**
-             *  @var \App\Models\User $user
+             *  @var \Blopes\SharedModels\Models\User $user
              **/
 
             $user = auth()->user();
