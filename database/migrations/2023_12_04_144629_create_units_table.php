@@ -23,6 +23,8 @@ return new class extends Migration
                 $table->string('code', 10)->nullable();
                 $table->bigInteger('category_id')->nullable()->unsigned();
                 $table->string('description', 255)->nullable();
+                $table->bigInteger('thumbnail_id')->nullable()->unsigned();
+                $table->foreign('thumbnail_id')->references('id')->on('thumbnails');
                 $table->string('image', 170)->nullable();
                 $table->bigInteger('creator_id')->nullable()->unsigned();
                 $table->foreign('creator_id')->references('id')->on('users');

@@ -20,6 +20,8 @@ return new class extends Migration
                 $table->string('email')->unique()->nullable();
                 $table->string('phone_number', 30)->unique()->nullable();
                 $table->string('sector', 50)->nullable();
+                $table->bigInteger('thumbnail_id')->nullable()->unsigned();
+                $table->foreign('thumbnail_id')->references('id')->on('thumbnails');
                 $table->string('logo')->nullable();
                 $table->string('description', 255)->nullable();
                 $table->boolean('is_registered')->default(false);

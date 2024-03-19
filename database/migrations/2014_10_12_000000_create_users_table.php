@@ -21,6 +21,8 @@ return new class extends Migration
                 $table->string('email')->unique();
                 $table->timestamp('email_verified_at')->nullable();
                 $table->string('password');
+                $table->bigInteger('thumbnail_id')->nullable()->unsigned();
+                $table->foreign('thumbnail_id')->references('id')->on('thumbnails');
                 $table->rememberToken();
                 $table->timestamps();
                 $table->softDeletes();

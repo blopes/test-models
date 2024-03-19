@@ -18,7 +18,9 @@ class ProjectServiceProvider extends ServiceProvider
     }
 
     protected $seed_list = [
-        'Blopes\SharedModels\Database\Seeders\UserSeeder',
+        'Blopes\SharedModels\Database\Seeders\AgentsSeeder',
+        'Blopes\SharedModels\Database\Seeders\AgentsSeeder',
+        'Blopes\SharedModels\Database\Seeders\AgentsSeeder',
     ];
     /**
      * Bootstrap any package services.

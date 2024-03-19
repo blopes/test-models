@@ -18,6 +18,8 @@ return new class extends Migration
                 $table->string('title', 50);
                 $table->string('reference', 10);
                 $table->string('code', 10)->nullable();
+                $table->bigInteger('thumbnail_id')->nullable()->unsigned();
+                $table->foreign('thumbnail_id')->references('id')->on('thumbnails');
                 $table->string('image', 170)->nullable();
                 $table->string('country', 70)->nullable();
                 $table->string('city', 70)->nullable();
