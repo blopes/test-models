@@ -20,9 +20,17 @@ class ProjectServiceProvider extends ServiceProvider
     }
 
     protected $seed_list = [
+        'Blopes\SharedModels\Database\Seeders\ThumbnailSeeder',
         'Blopes\SharedModels\Database\Seeders\AgentsSeeder',
         'Blopes\SharedModels\Database\Seeders\OrganizationSizeSeeder',
         'Blopes\SharedModels\Database\Seeders\ClassificationSystemSeeder',
+        'Blopes\SharedModels\Database\Seeders\FrameworkSeeder',
+        'Blopes\SharedModels\Database\Seeders\CategorySeeder',
+        'Blopes\SharedModels\Database\Seeders\PurposeSeeder',
+        'Blopes\SharedModels\Database\Seeders\TypeWorkSeeder',
+        'Blopes\SharedModels\Database\Seeders\RoleSeeder',
+        'Blopes\SharedModels\Database\Seeders\StageChapterSeeder',
+        'Blopes\SharedModels\Database\Seeders\StageSeeder',
     ];
     /**
      * Bootstrap any package services.
