@@ -12,22 +12,30 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create(
-            'users',
-            function (Blueprint $table) {
-                $table->id();
-                $table->string('first_name', 50);
-                $table->string('last_name', 50);
-                $table->string('email')->unique();
-                $table->timestamp('email_verified_at')->nullable();
-                $table->string('password');
-                $table->bigInteger('thumbnail_id')->nullable()->unsigned();
-                $table->foreign('thumbnail_id')->references('id')->on('thumbnails');
-                $table->rememberToken();
-                $table->timestamps();
-                $table->softDeletes();
-            }
-        );
+        if (!Schema::hasTable('users')) {
+            Schema::create(
+                'users',
+                function (Blueprint $table) {
+                    $table->id();
+                    $table->string('first_name', 50);
+                    $table->string('last_name', 50);
+                    $table->string('email')->unique();
+                    $table->timestamp('email_verified_at')->nullable();
+                    $table->string('password');
+                    $table->string('picture', 170)->nullable();
+                    $table->bigInteger('organization_id')->nullable()->unsigned();
+                    $table->string('phone_number', 70)->nullable();
+                    $table->bigInteger('thumbnail_id')->nullable()->unsigned();
+
+                    $table->foreign('organization_id')->references('id')->on('organizations');
+                    $table->foreign('thumbnail_id')->references('id')->on('thumbnails');
+
+                    $table->rememberToken();
+                    $table->timestamps();
+                    $table->softDeletes();
+                }
+            );
+        }
     }
 
     /**

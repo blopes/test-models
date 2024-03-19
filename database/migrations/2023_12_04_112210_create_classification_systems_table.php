@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create(
-            'classification_systems',
-            function (Blueprint $table) {
-                $table->id();
-                $table->string('name', 50);
-                $table->string('logo', 170)->nullable();
-            }
-        );
+        if (!Schema::hasTable('classification_systems')) {
+            Schema::create(
+                'classification_systems',
+                function (Blueprint $table) {
+                    $table->id();
+                    $table->string('name', 50);
+                    $table->string('logo', 170)->nullable();
+                }
+            );
+        }
     }
 
     /**

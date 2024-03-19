@@ -11,18 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('unit_details', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger('unit_id')->nullable()->unsigned();
-            $table->foreign('unit_id')->references('id')->on('units')->onDelete('cascade');
-            $table->string('address')->nullable();
-            $table->string('country', 70)->nullable();
-            $table->string('city', 70)->nullable();
-            $table->bigInteger('creator_id')->nullable()->unsigned();
-            $table->foreign('creator_id')->references('id')->on('users');
-            $table->timestamps();
-            $table->softDeletes();
-        });
+        if (!Schema::hasTable('unit_details')) {
+            Schema::create('unit_details', function (Blueprint $table) {
+                $table->id();
+                $table->bigInteger('unit_id')->nullable()->unsigned();
+                $table->string('address')->nullable();
+                $table->string('country', 70)->nullable();
+                $table->string('city', 70)->nullable();
+                $table->bigInteger('creator_id')->nullable()->unsigned();
+
+                $table->foreign('unit_id')->references('id')->on('units')->onDelete('cascade');
+                $table->foreign('creator_id')->references('id')->on('users');
+
+                $table->timestamps();
+                $table->softDeletes();
+            });
+        }
     }
 
     /**

@@ -12,23 +12,27 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create(
-            'organizations',
-            function (Blueprint $table) {
-                $table->id();
-                $table->string('name')->unique();
-                $table->string('email')->unique()->nullable();
-                $table->string('phone_number', 30)->unique()->nullable();
-                $table->string('sector', 50)->nullable();
-                $table->bigInteger('thumbnail_id')->nullable()->unsigned();
-                $table->foreign('thumbnail_id')->references('id')->on('thumbnails');
-                $table->string('logo')->nullable();
-                $table->string('description', 255)->nullable();
-                $table->boolean('is_registered')->default(false);
-                $table->timestamps();
-                $table->softDeletes();
-            }
-        );
+        if (!Schema::hasTable('organizations')) {
+            Schema::create(
+                'organizations',
+                function (Blueprint $table) {
+                    $table->id();
+                    $table->string('name')->unique();
+                    $table->string('email')->unique()->nullable();
+                    $table->string('phone_number', 30)->unique()->nullable();
+                    $table->string('sector', 50)->nullable();
+                    $table->bigInteger('thumbnail_id')->nullable()->unsigned();
+                    $table->string('logo')->nullable();
+                    $table->string('description', 255)->nullable();
+                    $table->boolean('is_registered')->default(false);
+
+                    $table->foreign('thumbnail_id')->references('id')->on('thumbnails');
+
+                    $table->timestamps();
+                    $table->softDeletes();
+                }
+            );
+        }
     }
 
     /**
@@ -36,10 +40,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
-        Schema::dropIfExists('organizations');
-        $table->dropSoftDeletes();
-
-        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+        Schema::table('organizations', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
     }
 };

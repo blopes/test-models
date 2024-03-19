@@ -12,19 +12,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create(
-            'stages',
-            function (Blueprint $table) {
-                $table->id();
-                $table->integer('value');
-                $table->string('name');
-                $table->string('color_code');
-                $table->bigInteger('stage_chapter_id')->nullable()->unsigned();
-                $table->foreign('stage_chapter_id')->references('id')->on('stage_chapters')->onDelete('cascade');
-                $table->bigInteger('framework_id')->nullable()->unsigned();
-                $table->foreign('framework_id')->references('id')->on('frameworks')->onDelete('cascade');
-            }
-        );
+        if (!Schema::hasTable('stages')) {
+            Schema::create(
+                'stages',
+                function (Blueprint $table) {
+                    $table->id();
+                    $table->integer('value');
+                    $table->string('name');
+                    $table->string('color_code');
+                    $table->bigInteger('stage_chapter_id')->nullable()->unsigned();
+                    $table->bigInteger('framework_id')->nullable()->unsigned();
+
+                    $table->foreign('stage_chapter_id')->references('id')->on('stage_chapters')->onDelete('cascade');
+                    $table->foreign('framework_id')->references('id')->on('frameworks')->onDelete('cascade');
+                }
+            );
+        }
     }
 
     /**

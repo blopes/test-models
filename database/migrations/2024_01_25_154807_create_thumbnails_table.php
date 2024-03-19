@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('thumbnails', function (Blueprint $table) {
-            $table->id();
-            $table->string('context', 50)->nullable();
-            $table->string('path', 150)->nullable();
-        });
+        if (!Schema::hasTable('thumbnails')) {
+            Schema::create('thumbnails', function (Blueprint $table) {
+                $table->id();
+                $table->string('context', 50)->nullable();
+                $table->string('path', 150)->nullable();
+            });
+        }
     }
 
     /**

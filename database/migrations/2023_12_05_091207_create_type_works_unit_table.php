@@ -12,20 +12,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create(
-            'type_works_unit',
-            function (Blueprint $table) {
-                $table->id();
+        if (!Schema::hasTable('type_works_unit')) {
+            Schema::create(
+                'type_works_unit',
+                function (Blueprint $table) {
+                    $table->id();
+                    $table->bigInteger('type_works_id')->nullable()->unsigned();
+                    $table->bigInteger('unit_id')->nullable()->unsigned();
 
-                $table->bigInteger('type_works_id')->nullable()->unsigned();
-                $table->foreign('type_works_id')->references('id')->on('type_works')->onDelete('cascade');
+                    $table->foreign('type_works_id')->references('id')->on('type_works')->onDelete('cascade');
+                    $table->foreign('unit_id')->references('id')->on('units')->onDelete('cascade');
 
-                $table->bigInteger('unit_id')->nullable()->unsigned();
-                $table->foreign('unit_id')->references('id')->on('units')->onDelete('cascade');
-                $table->timestamps();
-                $table->softDeletes();
-            }
-        );
+                    $table->timestamps();
+                    $table->softDeletes();
+                }
+            );
+        }
     }
 
     /**

@@ -11,22 +11,26 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create(
-            'project_details',
-            function (Blueprint $table) {
-                $table->id();
-                $table->bigInteger('project_id')->nullable()->unsigned();
-                $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
-                $table->string('description')->nullable();
-                $table->string('address')->nullable();
-                $table->unsignedBigInteger('budget')->nullable();
-                $table->string('asset_owner', 50)->nullable();
-                $table->bigInteger('user_id')->nullable()->unsigned();
-                $table->foreign('user_id')->references('id')->on('users');
-                $table->timestamps();
-                $table->softDeletes();
-            }
-        );
+        if (!Schema::hasTable('project_details')) {
+            Schema::create(
+                'project_details',
+                function (Blueprint $table) {
+                    $table->id();
+                    $table->bigInteger('project_id')->nullable()->unsigned();
+                    $table->string('description')->nullable();
+                    $table->string('address')->nullable();
+                    $table->unsignedBigInteger('budget')->nullable();
+                    $table->string('asset_owner', 50)->nullable();
+                    $table->bigInteger('user_id')->nullable()->unsigned();
+
+                    $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
+                    $table->foreign('user_id')->references('id')->on('users');
+
+                    $table->timestamps();
+                    $table->softDeletes();
+                }
+            );
+        }
     }
 
     /**
