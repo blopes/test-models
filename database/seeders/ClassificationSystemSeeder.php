@@ -12,7 +12,7 @@ class ClassificationSystemSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('classification_systems')->insert(
+        DB::table('classification_systems')->insertOrIgnore(
             [
                 [
                     'name' => 'Uniclass'

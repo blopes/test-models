@@ -100,16 +100,13 @@ class AgentsSeeder extends Seeder
 
         $id = 1;
         foreach ($agents as $agent) {
-            DB::table('agents')->insert(
-                [
+            DB::table('agents')->insertOrIgnore([
                 [
                     'id' => $id,
                     'title' => $agent,
                     'is_custom' => false
                 ]
-
-                ]
-            );
+            ]);            
             $id++;
         }
     }
