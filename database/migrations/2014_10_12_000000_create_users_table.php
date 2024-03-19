@@ -23,12 +23,7 @@ return new class extends Migration
                     $table->timestamp('email_verified_at')->nullable();
                     $table->string('password');
                     $table->string('picture', 170)->nullable();
-                    $table->bigInteger('organization_id')->nullable()->unsigned();
                     $table->string('phone_number', 70)->nullable();
-                    $table->bigInteger('thumbnail_id')->nullable()->unsigned();
-
-                    $table->foreign('organization_id')->references('id')->on('organizations');
-                    $table->foreign('thumbnail_id')->references('id')->on('thumbnails');
 
                     $table->rememberToken();
                     $table->timestamps();
