@@ -21,7 +21,7 @@ return new class extends Migration
                 $table->foreign('thumbnail_id')->references('id')->on('thumbnails');
             }
         );
-    }
+    }   
 
     /**
      * Reverse the migrations.
