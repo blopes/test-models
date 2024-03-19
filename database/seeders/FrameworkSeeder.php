@@ -15,6 +15,7 @@ class FrameworkSeeder extends Seeder
         DB::table('frameworks')->insertOrIgnore(
             [
                 [
+                    'id' => 1,
                     'name' => 'RIBA'
                 ],
 

@@ -14,7 +14,7 @@ class ClassificationSystemSeeder extends Seeder
     {
         DB::table('classification_systems')->insertOrIgnore(
             [
-                [
+                [   'id' => 1,
                     'name' => 'Uniclass'
                 ],
             ]
