@@ -197,4 +197,5 @@ class User extends Authenticable
         return $this->BelongsTo(Thumbnail::class);
     }
 
+
 }

@@ -2,6 +2,7 @@
 
 namespace Blopes\SharedModels\Models;
 
+use Blopes\SharedModels\Database\Factories\UnitDetailsFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -30,5 +31,10 @@ class UnitDetails extends Model
     public function creator(): BelongsTo
     {
         return $this->belongsTo(User::class, 'creator_id');
+    }
+
+    protected static function newFactory()
+    {
+        return UnitDetailsFactory::new();
     }
 }

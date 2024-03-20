@@ -3,6 +3,7 @@
 namespace Blopes\SharedModels\Models;
 
 use App\Http\Traits\ExcludableTrait;
+use Blopes\SharedModels\Database\Factories\UserDetailsFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -59,5 +60,10 @@ class UserDetails extends Model
     public function user()
     {
         return $this->hasOne(User::class, 'user_id');
+    }
+
+    protected static function newFactory()
+    {
+        return UserDetailsFactory::new();
     }
 }

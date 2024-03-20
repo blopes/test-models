@@ -2,6 +2,7 @@
 
 namespace Blopes\SharedModels\Models;
 
+use Blopes\SharedModels\Database\Factories\OrganizationDetailsFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -79,5 +80,10 @@ class OrganizationDetails extends Model
     public function creator()
     {
         return $this->hasOne(User::class, 'id', 'creator_id');
+    }
+
+    protected static function newFactory()
+    {
+        return OrganizationDetailsFactory::new();
     }
 }

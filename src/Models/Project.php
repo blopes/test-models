@@ -2,6 +2,7 @@
 
 namespace Blopes\SharedModels\Models;
 
+use Blopes\SharedModels\Database\Factories\ProjectFactory;
 use Blopes\SharedModels\Models\AgentActions;
 use Blopes\SharedModels\Models\ClassificationSystem;
 use Blopes\SharedModels\Models\Framework;
@@ -114,6 +115,11 @@ class Project extends Model
     public function thumbnail()
     {
         return $this->belongsTo(Thumbnail::class);
+    }
+
+    protected static function newFactory()
+    {
+        return ProjectFactory::new();
     }
 
 }
