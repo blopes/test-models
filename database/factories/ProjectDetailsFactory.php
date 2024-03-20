@@ -2,12 +2,14 @@
 
 namespace Blopes\SharedModels\Database\Factories;
 
+use Blopes\SharedModels\Models\ProjectDetails;
 use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Blopes\SharedModels\Models\ProjectDetails>
  */
 class ProjectDetailsFactory extends Factory
 {
+    protected $model = ProjectDetails::class;
     /**
      * Define the model's default state.
      *

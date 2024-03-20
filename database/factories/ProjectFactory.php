@@ -4,6 +4,7 @@ namespace Blopes\SharedModels\Database\Factories;
 
 use Blopes\SharedModels\Models\ClassificationSystem;
 use Blopes\SharedModels\Models\Framework;
+use Blopes\SharedModels\Models\Project;
 use Blopes\SharedModels\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 /**
@@ -11,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ProjectFactory extends Factory
 {
+    protected $model = Project::class;
     /**
      * Define the model's default state.
      *

@@ -2,6 +2,7 @@
 
 namespace Blopes\SharedModels\Database\Factories;
 
+use Blopes\SharedModels\Models\UnitDetails;
 use Blopes\SharedModels\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -10,6 +11,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class UnitDetailsFactory extends Factory
 {
+    protected $model = UnitDetails::class;
     /**
      * Define the model's default state.
      *

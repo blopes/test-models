@@ -2,6 +2,7 @@
 
 namespace Blopes\SharedModels\Database\Factories;
 
+use Blopes\SharedModels\Models\OrganizationDetails;
 use Blopes\SharedModels\Models\OrganizationSize;
 use Illuminate\Database\Eloquent\Factories\Factory;
 /**
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class OrganizationDetailsFactory extends Factory
 {
+    protected $model = OrganizationDetails::class;
     /**
      * Define the model's default state.
      *
