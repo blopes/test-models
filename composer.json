@@ -10,7 +10,8 @@
     "autoload": {
         "psr-4": {
             "Blopes\\SharedModels\\": "src/",
-            "Blopes\\SharedModels\\Database\\Seeders\\": "database/seeders/"
+            "Blopes\\SharedModels\\Database\\Seeders\\": "database/seeders/",
+            "Blopes\\SharedModels\\Database\\Factories\\": "database/factories/"
         }
     },
     "authors": [
