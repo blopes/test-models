@@ -2,6 +2,7 @@
 
 namespace Blopes\SharedModels\Models;
 
+use Blopes\SharedModels\Database\Factories\OrganizationFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -108,5 +109,10 @@ class Organization extends Model
     public function thumbnail(): BelongsTo
     {
         return $this->BelongsTo(Thumbnail::class);
+    }
+
+    protected static function newFactory()
+    {
+        return OrganizationFactory::new();
     }
 }
