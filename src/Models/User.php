@@ -2,6 +2,7 @@
 
 namespace Blopes\SharedModels\Models;
 
+use Blopes\SharedModels\Database\Factories\UserFactory;
 use Exception;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -197,5 +198,8 @@ class User extends Authenticable
         return $this->BelongsTo(Thumbnail::class);
     }
 
-
+    protected static function newFactory()
+    {
+        return UserFactory::new();
+    }
 }
