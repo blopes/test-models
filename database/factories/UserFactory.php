@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Factories;
+namespace Blopes\SharedModels\Database\Factories;
 
 use Blopes\SharedModels\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
