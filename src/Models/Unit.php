@@ -32,15 +32,6 @@ class Unit extends Model
             foreach ($unit->agentActions as $agent_action) {
                 $agent_action->delete();
             }
-            foreach ($unit->taskActions as $task_action) {
-                $task_action->delete();
-            }
-            foreach ($unit->elementActions as $element_action) {
-                $element_action->delete();
-            }
-            foreach ($unit->deliverables as $deliverable) {
-                $deliverable->delete();
-            }
         });
     }
 
