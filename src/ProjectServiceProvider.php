@@ -15,8 +15,8 @@ class ProjectServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        app('router')->aliasMiddleware('authenticate', Authenticate::class);
-        app('router')->aliasMiddleware('verify_email', CustomEmailVerification::class);
+        app('router')->aliasMiddleware('auth', Authenticate::class);
+        app('router')->aliasMiddleware('custom_verified', CustomEmailVerification::class);
     }
 
     protected $seed_list = [
